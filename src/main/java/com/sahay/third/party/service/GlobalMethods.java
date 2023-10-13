@@ -40,7 +40,6 @@ public class GlobalMethods {
     @Value(value = "${org.app.properties.sms.endpoint}")
     private String SMS_URL;
 
-
     private final HttpProcessor httpProcessor;
     private final ClientRepository clientRepository;
     private final ProcessingService processingService;

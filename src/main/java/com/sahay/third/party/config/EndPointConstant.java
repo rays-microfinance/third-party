@@ -7,6 +7,11 @@ public class EndPointConstant {
             versioning + "/generate-token",
             versioning + "/create-login",
             versioning + "/add-client",
-            versioning + "/internal/request"
+            versioning + "/internal/request",
+            versioning + "/portal/user",
+            versioning + "/portal/login",
+            versioning + "/portal/role",
+            "/error"
+
     };
 }

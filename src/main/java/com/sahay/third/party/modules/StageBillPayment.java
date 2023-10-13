@@ -117,7 +117,6 @@ public class StageBillPayment {
                                 jsonObj.put("date", strDate);
                                 jsonObj.put("time", strTime);
                                 jsonObj.put("otp", uniqueCode);
-
                                 String[] words = {"name", "amount", "company_name", "date", "time", "otp"};
                                 String message = smsLogging.generateMessage(jsonObj, words);
                                 globalMethods.sendSMS(message, payment.getPhoneNumber(), payment.getTransRef());

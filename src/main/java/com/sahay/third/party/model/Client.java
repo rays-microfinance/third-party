@@ -8,7 +8,9 @@ import java.util.Objects;
 
 @Data
 @Entity
-@Table(name = "Client")
+@Table(name = "Client", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"email", "username", "phone_number"})
+})
 public class Client {
     @Id
     @Column(name = "id")
@@ -30,13 +32,32 @@ public class Client {
     @Column(name = "not_url")
     private String notUrl;
     @Basic
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
+    @Column(name = "email", unique = true)
+    private String email;
+    @Basic
+    @Column(name = "phone_number", unique = true)
+    private String phoneNumber;
     @Basic
     @Column(name = "password")
     private String password;
     @Basic
     @Column(name = "created_date")
     private Timestamp createdDate;
+    @Basic
+    @Column(name = "is_password_changed")
+    private Boolean isPasswordChanged;
+    @Basic
+    @Column(name = "is_active")
+    private Boolean isActive = false;
+    @OneToOne()
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private Role role;
+
+    @ManyToOne()
+    @JoinColumn(name = "company_id" , referencedColumnName = "id")
+    private Company company;
+
 
 }
